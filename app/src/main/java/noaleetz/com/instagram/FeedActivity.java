@@ -1,6 +1,8 @@
 package noaleetz.com.instagram;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -20,12 +22,14 @@ import noaleetz.com.instagram.Models.Post;
 
 
 
+
+
 public class FeedActivity extends AppCompatActivity {
 
     private EditText etDescriptionInput;
     private Button btCreate;
     private Button btRefresh;
-    private static final String imagePath = ""; // TODO - enter image path
+    private static final String imagePath = "/sdcard/DCIM/Camera/IMG_20180710_113618.jpg"; // TODO - enter image path
 
 
     @Override
@@ -37,7 +41,10 @@ public class FeedActivity extends AppCompatActivity {
 
         etDescriptionInput = findViewById(R.id.etDescriptionInput);
         btCreate = findViewById(R.id.btCreate);
-        btRefresh = findViewById(R.id.btLogin);
+        btRefresh = findViewById(R.id.btRefresh);
+
+        // asking user for perm
+
 
         btCreate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +54,20 @@ public class FeedActivity extends AppCompatActivity {
                 final File file = new File(imagePath);
                 final ParseFile parseFile = new ParseFile(file);
 
-                createPost(description,parseFile,user);
+                parseFile.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if(e == null) {
+                            // no errors saving post
+                            Log.d("FeedActivity","saving complete");
+                            createPost(description,parseFile,user);
+                        }
+                        else{
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
             }
         });
         btRefresh.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +91,7 @@ public class FeedActivity extends AppCompatActivity {
             @Override
             public void done(ParseException e) {
              if(e == null) {
+                 // no error
                 Log.d("FeedActivity","Create Post Success!");
              }
              else{
@@ -80,6 +101,24 @@ public class FeedActivity extends AppCompatActivity {
         });
 
     }
+
+    public void onPickPhoto(View view) {
+        // creating intent
+        // built in act. implicit
+        //
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        // img = data.getExtra('....')
+
+
+
+        // parse
+    }
+
     private void loadTopPosts() {
 
         final Post.Query postQuery = new Post.Query();

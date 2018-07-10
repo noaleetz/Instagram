@@ -34,7 +34,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="61" />
+                                                <entry key="scalingPercent" value="46" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -46,9 +46,9 @@
                                     <map>
                                       <entry key="backgroundImage" value="$USER_HOME$/Downloads/insta_back_color.png" />
                                       <entry key="backgroundLayerName" value="insta_back_color" />
-                                      <entry key="foregroundImage" value="$USER_HOME$/Downloads/Instagram_logo.svg.png" />
-                                      <entry key="foregroundLayerName" value="ic_instacurly" />
-                                      <entry key="outputName" value="insta_curly" />
+                                      <entry key="foregroundImage" value="$USER_HOME$/Downloads/instagram_android_assets/instagram_android_assets/drawable-xxhdpi/instagram_new_post_outline_24.png" />
+                                      <entry key="foregroundLayerName" value="add" />
+                                      <entry key="outputName" value="ic_add" />
                                     </map>
                                   </option>
                                 </PersistentState>

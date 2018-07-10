@@ -24,14 +24,37 @@
         android:id="@+id/etPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="223dp"
         android:background="@color/grey_7_85_transparent"
         android:ems="10"
+
         android:hint="Password"
         android:inputType="textPassword|textVisiblePassword"
-        android:singleLine="true"
+        android:singleLine="true" />
 
-        />
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="213dp"
+        android:background="@color/grey_7_85_transparent"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="text|textMultiLine|textEmailAddress"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/btRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="138dp"
+        android:text="Create an Account" />
 
     <EditText
         android:id="@+id/etUsername"
@@ -46,24 +69,4 @@
         android:inputType="text|textMultiLine|textEmailAddress"
         android:singleLine="true" />
 
-    <Button
-        android:id="@+id/btLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="178dp"
-        android:text="Log In" />
-
-    <Button
-        android:id="@+id/btSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/transparent"
-        android:text="Don't have an account? Sign Up."
-        android:textAlignment="center"
-        android:textSize="10sp"
-        android:visibility="visible" />
 </RelativeLayout>
