@@ -13,6 +13,19 @@
                       <PersistentState>
                         <option name="children">
                           <map>
+                            <entry key="actionbar">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="assetType" value="IMAGE" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/instagram_android_assets/drawable/ufi_save.png" />
+                                      <entry key="outputName" value="icFlag" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
                             <entry key="launcher">
                               <value>
                                 <PersistentState>
@@ -34,7 +47,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="46" />
+                                                <entry key="scalingPercent" value="49" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -44,16 +57,20 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="backgroundImage" value="$USER_HOME$/Downloads/insta_back_color.png" />
                                       <entry key="backgroundLayerName" value="insta_back_color" />
-                                      <entry key="foregroundImage" value="$USER_HOME$/Downloads/instagram_android_assets/instagram_android_assets/drawable-xxhdpi/instagram_new_post_outline_24.png" />
-                                      <entry key="foregroundLayerName" value="add" />
-                                      <entry key="outputName" value="ic_add" />
+                                      <entry key="foregroundImage" value="$USER_HOME$/Downloads/instagram_android_assets/drawable/ufi_heart.png" />
+                                      <entry key="foregroundLayerName" value="iconHeart" />
+                                      <entry key="outputName" value="icHeart" />
                                     </map>
                                   </option>
                                 </PersistentState>
                               </value>
                             </entry>
+                          </map>
+                        </option>
+                        <option name="values">
+                          <map>
+                            <entry key="outputIconType" value="ACTIONBAR" />
                           </map>
                         </option>
                       </PersistentState>

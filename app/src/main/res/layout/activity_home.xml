@@ -12,10 +12,9 @@
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
         app:menu="@menu/menu"
-        />
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vpFragmentContainer"
