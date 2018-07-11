@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -23,16 +24,21 @@ import noaleetz.com.instagram.Models.Post;
 
 public class NewPostFragment extends Fragment {
 
+
     private EditText etDescriptionInput;
+    private EditText etLocationInput;
     private Button btCreate;
     private Button btRefresh;
     private static final String imagePath = "/sdcard/DCIM/Camera/IMG_20180710_113618.jpg"; // TODO - enter image path
-
+    public ImageView ivImageToPost;
+    public final String APP_TAG = "MyCustomApp";
+    public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
+    public String photoFileName = "photo.jpg";
+    File photoFile;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
     }
 
@@ -44,6 +50,7 @@ public class NewPostFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_new_post, container, false);
     }
 
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -51,11 +58,22 @@ public class NewPostFragment extends Fragment {
         etDescriptionInput = view.findViewById(R.id.etDescriptionInput);
         btCreate = view.findViewById(R.id.btCreate);
         btRefresh = view.findViewById(R.id.btRefresh);
+        etLocationInput = view.findViewById(R.id.etLocationInput);
+
+        ivImageToPost = view.findViewById(R.id.ivImageToPost);
+
+        ivImageToPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         btCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String description = etDescriptionInput.getText().toString();
+                final String location = etLocationInput.getText().toString();
                 final ParseUser user = ParseUser.getCurrentUser();
                 final File file = new File(imagePath);
                 final ParseFile parseFile = new ParseFile(file);
@@ -66,7 +84,7 @@ public class NewPostFragment extends Fragment {
                         if(e == null) {
                             // no errors saving post
                             Log.d("FeedActivity","saving complete");
-                            createPost(description,parseFile,user);
+                            createPost(description,parseFile,user,location);
                         }
                         else{
                             e.printStackTrace();
@@ -86,11 +104,12 @@ public class NewPostFragment extends Fragment {
 
     }
 
-    private void createPost(String description, ParseFile imageFile, ParseUser user) {
+    private void createPost(String description, ParseFile imageFile, ParseUser user,String location) {
         // TODO- create and save post
         final Post newPost = new Post();
         newPost.setDescription(description);
         newPost.setImage(imageFile);
+        newPost.setLocation(location);
         newPost.setUser(user);
 
         newPost.saveInBackground(new SaveCallback() {
@@ -132,9 +151,10 @@ public class NewPostFragment extends Fragment {
 
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-    }
+
+
+
+
+
 
 }

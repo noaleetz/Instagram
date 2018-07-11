@@ -19,8 +19,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/instagram_android_assets/drawable/ufi_save.png" />
-                                      <entry key="outputName" value="icFlag" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/instagram_android_assets/drawable-xxhdpi/instagram_user_outline_24.png" />
+                                      <entry key="outputName" value="ic_profile" />
                                     </map>
                                   </option>
                                 </PersistentState>

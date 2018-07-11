@@ -11,7 +11,11 @@ public class Post extends ParseObject {
 private static final String KEY_DESCRIPTION = "Description";
 private static final String KEY_IMAGE = "Image";
 private static final String KEY_USER = "User";
+private static final String KEY_LOCATION = "Location";
 
+
+    public String getLocation() { return getString(KEY_LOCATION);}
+    public void  setLocation(String location) { put(KEY_LOCATION,location);}
     public String getDescription() {
         return getString(KEY_DESCRIPTION);
     }
@@ -19,7 +23,7 @@ private static final String KEY_USER = "User";
         put(KEY_DESCRIPTION,description);
     }
     public ParseFile getImage() {
-        return getParseFile("KEY_IMAGE");
+        return getParseFile(KEY_IMAGE);
     }
     public void setImage(ParseFile image){
         put(KEY_IMAGE,image);
