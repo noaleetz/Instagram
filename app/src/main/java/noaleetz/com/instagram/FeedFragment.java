@@ -64,7 +64,7 @@ public class FeedFragment extends Fragment {
     private void loadTopPosts() {
 
         final Post.Query postQuery = new Post.Query();
-        postQuery.getTop().withUser();
+        postQuery.getTop().withUser().orderByLastCreated();
 
         postQuery.findInBackground(new FindCallback<Post>() {
             @Override

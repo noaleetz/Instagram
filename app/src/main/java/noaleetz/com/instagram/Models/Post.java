@@ -46,6 +46,10 @@ private static final String KEY_LOCATION = "Location";
            include("User");
            return this;
     }
+    public Query orderByLastCreated() {
+            orderByDescending("createdAt");
+            return this;
+    }
     }
 
 }

@@ -19,30 +19,26 @@
     <EditText
         android:id="@+id/etDescriptionInput"
         android:layout_width="match_parent"
-        android:layout_height="79dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/ivImageToPost"
         android:layout_centerHorizontal="true"
-        android:ems="10"
         android:hint="input description"
         android:inputType="text" />
 
     <Button
         android:id="@+id/btCreate"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/btRefresh"
-        android:layout_marginStart="93dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/etLocationInput"
+        android:layout_toStartOf="@+id/btRefresh"
         android:text="Create" />
 
     <Button
         android:id="@+id/btRefresh"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_height="100dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="19dp"
-        android:layout_marginEnd="93dp"
+        android:layout_below="@id/etLocationInput"
         android:text="Refresh" />
 
     <ImageView
@@ -52,7 +48,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="67dp"
-        app:srcCompat="@color/blue_5_20_transparent" />
+        android:background="@color/blueteal_5_20_transparent"
+        app:srcCompat="@drawable/ic_camera" />
 
     <ImageView
         android:id="@+id/ivProfilePic"

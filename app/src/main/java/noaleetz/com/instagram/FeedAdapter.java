@@ -65,7 +65,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
 
         // TODO- require location whe making post
 
-        holder.tvLocation.setText("Location");
+        holder.tvLocation.setText(post.getLocation());
 
     }
 
