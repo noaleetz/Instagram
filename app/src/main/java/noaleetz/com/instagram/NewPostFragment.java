@@ -18,8 +18,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.request.RequestOptions;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
@@ -27,11 +29,11 @@ import com.parse.SaveCallback;
 
 import java.io.File;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 import noaleetz.com.instagram.Models.BitmapScaler;
 import noaleetz.com.instagram.Models.Post;
 
 import static android.app.Activity.RESULT_OK;
-
 
 public class NewPostFragment extends Fragment {
 
@@ -45,6 +47,10 @@ public class NewPostFragment extends Fragment {
     private Button btRefresh;
     private static String imagePath = ""; // TODO - enter image path
     public ImageView ivImageToPost;
+    public ImageView ivProfile;
+    public TextView tvHandle;
+    public TextView tvUsername;
+
     public final String APP_TAG = "MyCustomApp";
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
     public String photoFileName = "photo.jpg";
@@ -100,10 +106,29 @@ public class NewPostFragment extends Fragment {
         btCreate = view.findViewById(R.id.btCreate);
         btRefresh = view.findViewById(R.id.btRefresh);
         etLocationInput = view.findViewById(R.id.etLocationInput);
-
+        ivProfile = view.findViewById(R.id.ivImageToPost);
         ivImageToPost = view.findViewById(R.id.ivImageToPost);
-        swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
+        tvUsername = view.findViewById(R.id.tvUsername);
+        tvHandle = view.findViewById(R.id.tvHandle);
 
+        final RoundedCornersTransformation roundedCornersTransformation = new RoundedCornersTransformation(15,15);
+        final RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCornersTransformation);
+
+
+
+
+
+            ParseUser currentUser = ParseUser.getCurrentUser();
+
+//            TODO- profile pic
+
+//            Glide.with(this)
+//                    .load(currentUser.getPic)
+//                    .apply(requestOptions)
+//                    .into(ivProfile);
+
+            tvUsername.setText(currentUser.getUsername());
+            tvHandle.setText("@" + currentUser.getUsername());
 
 
 

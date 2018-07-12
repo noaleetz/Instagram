@@ -291,4 +291,7 @@
     <color name="zero_rating_video_settings_drawer_confirm_button_color">#ffffffff</color>
     <color name="zero_rating_video_settings_drawer_subtitle_color">#ff999999</color>
     <color name="zero_rating_video_settings_drawer_unchecked_border_color">#ffdbdbdb</color>
+    <color name="style_color_primary">#2d5d82</color>
+    <color name="style_color_primary_dark">#21425d</color>
+    <color name="style_color_accent">#01bcd5</color>
 </resources>

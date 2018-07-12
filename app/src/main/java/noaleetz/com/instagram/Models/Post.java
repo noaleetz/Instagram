@@ -12,6 +12,9 @@ private static final String KEY_DESCRIPTION = "Description";
 private static final String KEY_IMAGE = "Image";
 private static final String KEY_USER = "User";
 private static final String KEY_LOCATION = "Location";
+private static final String KEY_PIC = "ProfilePic";
+
+
 
 
     public String getLocation() { return getString(KEY_LOCATION);}

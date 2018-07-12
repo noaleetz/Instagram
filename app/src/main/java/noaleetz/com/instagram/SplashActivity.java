@@ -15,8 +15,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        getSupportActionBar().hide();
-
 
         // create a handler to start menu-activity
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {

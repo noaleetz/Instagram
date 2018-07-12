@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FeedActivity">
+    tools:context=".HomeActivity">
 
     <EditText
         android:id="@+id/etLocationInput"
@@ -52,7 +52,7 @@
         app:srcCompat="@drawable/ic_camera" />
 
     <ImageView
-        android:id="@+id/m"
+        android:id="@+id/ivProfile"
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:layout_alignParentStart="true"
@@ -64,8 +64,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/m"
-        android:text="Current Username"
+        android:layout_marginTop="3dp"
+        android:layout_toEndOf="@+id/ivProfile"
         android:textSize="24sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvHandle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvUsername"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/ivProfile"
+        android:textSize="20dp"
+        android:textStyle="italic" />
 </RelativeLayout>

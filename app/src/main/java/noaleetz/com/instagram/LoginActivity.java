@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(e == null) {
                     // no errors!
                     Log.d("LoginActivity","Login was successful!");
-                    final Intent i = new Intent(LoginActivity.this,FeedActivity.class);
+                    final Intent i = new Intent(LoginActivity.this,HomeActivity.class);
                     startActivity(i);
                     finish();
                 }

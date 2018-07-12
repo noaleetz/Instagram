@@ -53,10 +53,15 @@ public class FeedFragment extends Fragment {
 
     public void fetchTimelineAsync(int page) {
 
+        loadTopPosts();
+
+        // TODO - refresh stops early
+
         if (swipeContainer.isRefreshing()) {
             swipeContainer.setRefreshing(false);
         }
-        loadTopPosts();
+
+
     }
 
 
@@ -73,6 +78,8 @@ public class FeedFragment extends Fragment {
         loadTopPosts();
 
         swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
+
+
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

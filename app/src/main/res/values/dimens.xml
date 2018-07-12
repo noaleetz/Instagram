@@ -1802,5 +1802,8 @@
     <dimen name="zero_rating_video_settings_drawer_video_subtitle_bottom_padding">12.0dip</dimen>
     <dimen name="zero_rating_video_settings_drawer_video_subtitle_top_padding">12.0dip</dimen>
     <dimen name="zero_rating_video_settings_drawer_video_title_top_padding">24.0dip</dimen>
+    <dimen name="btn_fab_size">56dp</dimen>
+    <dimen name="btn_fab_margins">16dp</dimen>
+    <dimen name="default_elevation">8dp</dimen>
 
 </resources>

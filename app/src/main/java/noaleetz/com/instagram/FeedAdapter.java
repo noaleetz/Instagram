@@ -95,7 +95,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
             itemView.setOnClickListener(this);
 
             //findViewById lookups
-            ivProfilePic = (ImageView) itemView.findViewById(R.id.m);
+            ivProfilePic = (ImageView) itemView.findViewById(R.id.ivProfile);
             ivPostedImage = (ImageView) itemView.findViewById(R.id.ivPostedImage);
             tvUsername = (TextView) itemView.findViewById(R.id.tvUsername);
             tvLocation = (TextView) itemView.findViewById(R.id.tvLocation);
