@@ -45,6 +45,9 @@ public class HomeActivity extends AppCompatActivity implements ProfileFragment.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        getSupportActionBar().hide();
+
+
 
         fragments.add(new FeedFragment());
         fragments.add(new NewPostFragment());
@@ -125,4 +128,6 @@ public class HomeActivity extends AppCompatActivity implements ProfileFragment.O
     public void switchFragment(int i) {
         vpFragmentContainer.setCurrentItem(i,true);
     }
+
+
 }

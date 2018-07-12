@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.FileProvider;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,10 +49,15 @@ public class NewPostFragment extends Fragment {
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
     public String photoFileName = "photo.jpg";
     File photoFile;
+    private SwipeRefreshLayout swipeContainer;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
     }
 
@@ -84,7 +90,8 @@ public class NewPostFragment extends Fragment {
     }
 
 
-    @Override
+
+        @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -95,8 +102,12 @@ public class NewPostFragment extends Fragment {
         etLocationInput = view.findViewById(R.id.etLocationInput);
 
         ivImageToPost = view.findViewById(R.id.ivImageToPost);
+        swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
 
-        ivImageToPost.setOnClickListener(new View.OnClickListener() {
+
+
+
+            ivImageToPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onLaunchCamera();

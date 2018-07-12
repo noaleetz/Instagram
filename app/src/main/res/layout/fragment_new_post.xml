@@ -52,7 +52,7 @@
         app:srcCompat="@drawable/ic_camera" />
 
     <ImageView
-        android:id="@+id/ivProfilePic"
+        android:id="@+id/m"
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:layout_alignParentStart="true"
@@ -64,7 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/ivProfilePic"
+        android:layout_toEndOf="@+id/m"
         android:text="Current Username"
         android:textSize="24sp"
         android:textStyle="bold" />

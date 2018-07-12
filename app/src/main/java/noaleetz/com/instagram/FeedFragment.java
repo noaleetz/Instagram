@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -22,6 +23,10 @@ import noaleetz.com.instagram.Models.Post;
 
 public class FeedFragment extends Fragment {
     private static final String TAG = "FeedFragmentTAG";
+
+    private SwipeRefreshLayout swipeContainer;
+
+
 
     private RecyclerView rvPosts;
     private FeedAdapter adapter;
@@ -46,6 +51,13 @@ public class FeedFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_feed, container, false);
     }
 
+    public void fetchTimelineAsync(int page) {
+
+        if (swipeContainer.isRefreshing()) {
+            swipeContainer.setRefreshing(false);
+        }
+        loadTopPosts();
+    }
 
 
     @Override
@@ -59,9 +71,31 @@ public class FeedFragment extends Fragment {
         rvPosts.setLayoutManager(linearLayoutManager);
         rvPosts.setAdapter(adapter);
         loadTopPosts();
+
+        swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Your code to refresh the list here.
+                // Make sure you call swipeContainer.setRefreshing(false)
+                // once the network request has completed successfully.
+                fetchTimelineAsync(0);
+
+                swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                        android.R.color.holo_green_light,
+                        android.R.color.holo_orange_light,
+                        android.R.color.holo_red_light);
+
+            }
+
+
+        });
+
+
     }
 
     public void loadTopPosts() {
+
 
         final Post.Query postQuery = new Post.Query();
         postQuery.getTop().withUser().orderByLastCreated();

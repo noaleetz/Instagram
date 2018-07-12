@@ -26,6 +26,10 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
     public FeedAdapter(List<Post> posts) {
         mposts = posts;
 
+
+
+
+
     }
 //2- inflate EACH row, cache references into ViewHolder
 
@@ -91,7 +95,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
             itemView.setOnClickListener(this);
 
             //findViewById lookups
-            ivProfilePic = (ImageView) itemView.findViewById(R.id.ivProfilePic);
+            ivProfilePic = (ImageView) itemView.findViewById(R.id.m);
             ivPostedImage = (ImageView) itemView.findViewById(R.id.ivPostedImage);
             tvUsername = (TextView) itemView.findViewById(R.id.tvUsername);
             tvLocation = (TextView) itemView.findViewById(R.id.tvLocation);
@@ -104,6 +108,21 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
         public void onClick(View view) {
             // TODO- post detail page
         }
+
+
+
+    }
+
+    // Clean all elements of the recycler
+    public void clear() {
+        mposts.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items -- change to type used
+    public void addAll(List<Post> list) {
+        mposts.addAll(list);
+        notifyDataSetChanged();
     }
 }
 

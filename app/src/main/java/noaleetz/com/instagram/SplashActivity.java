@@ -10,11 +10,13 @@ public class SplashActivity extends AppCompatActivity {
 
     private final int SPLASH_DISPLAY_LENGTH = 5000;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        getSupportActionBar().hide();
+
 
         // create a handler to start menu-activity
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
