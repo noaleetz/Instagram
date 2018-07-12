@@ -12,14 +12,13 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        app:menu="@menu/menu"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
+        app:menu="@menu/menu" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vpFragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="443dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/nvBottomBar"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
 </RelativeLayout>

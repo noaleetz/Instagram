@@ -61,7 +61,7 @@ public class FeedFragment extends Fragment {
         loadTopPosts();
     }
 
-    private void loadTopPosts() {
+    public void loadTopPosts() {
 
         final Post.Query postQuery = new Post.Query();
         postQuery.getTop().withUser().orderByLastCreated();
@@ -75,6 +75,7 @@ public class FeedFragment extends Fragment {
                         Log.d(TAG, "Post [" + i + "] = " + objects.get(i).getDescription()
                                 + "\nusername: " + objects.get(i).getUser().getUsername());
                     }
+                    posts.clear();
                     posts.addAll(objects);
                     adapter.notifyDataSetChanged();
                 } else {

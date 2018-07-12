@@ -20,7 +20,7 @@ import noaleetz.com.instagram.Models.Post;
 public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
     // 1- pass in post array (give adapter data)
 
-    private List<Post> mposts;
+    public List<Post> mposts;
     private Context mcontext;
 
     public FeedAdapter(List<Post> posts) {

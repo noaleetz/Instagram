@@ -1,5 +1,6 @@
 package noaleetz.com.instagram;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,14 +19,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import java.io.File;
-import java.util.List;
 
 import noaleetz.com.instagram.Models.BitmapScaler;
 import noaleetz.com.instagram.Models.Post;
@@ -35,6 +34,9 @@ import static android.app.Activity.RESULT_OK;
 
 public class NewPostFragment extends Fragment {
 
+    // Define the listener of the interface type
+    // listener will the activity instance containing fragment
+    private OnItemSelectedListener listener;
 
     private EditText etDescriptionInput;
     private EditText etLocationInput;
@@ -59,6 +61,26 @@ public class NewPostFragment extends Fragment {
         // Defines the xml file for the fragment
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_new_post, container, false);
+    }
+
+
+    // Define the events that the fragment will use to communicate
+    public interface OnItemSelectedListener {
+        // This can be any number of events to be sent to the activity
+        public void onNewPostCreated();
+        public void switchFragment(int i);
+    }
+
+    // Store the listener (activity) that will have events fired once the fragment is attached
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnItemSelectedListener) {
+            listener = (OnItemSelectedListener) context;
+        } else {
+            throw new ClassCastException(context.toString()
+                    + " must implement MyListFragment.OnItemSelectedListener");
+        }
     }
 
 
@@ -108,10 +130,11 @@ public class NewPostFragment extends Fragment {
 
             }
         });
+
         btRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadTopPosts();
+                listener.onNewPostCreated();
             }
         });
 
@@ -132,7 +155,8 @@ public class NewPostFragment extends Fragment {
                 if(e == null) {
                     // no error
                     Log.d("FeedActivity","Create Post Success!");
-                    loadTopPosts();
+                    listener.onNewPostCreated();
+                    listener.switchFragment(0);
                 }
                 else{
                     e.printStackTrace();

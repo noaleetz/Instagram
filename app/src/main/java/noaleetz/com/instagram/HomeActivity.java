@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity implements ProfileFragment.OnFragmentInteractionListener{
+public class HomeActivity extends AppCompatActivity implements ProfileFragment.OnFragmentInteractionListener, NewPostFragment.OnItemSelectedListener {
 
     @Override
     public void onFragmentInteraction(Uri uri) {
@@ -116,7 +116,13 @@ public class HomeActivity extends AppCompatActivity implements ProfileFragment.O
     }
 
 
+    @Override
+    public void onNewPostCreated() {
+        ((FeedFragment) fragments.get(0)).loadTopPosts();
+    }
 
-
-
+    @Override
+    public void switchFragment(int i) {
+        vpFragmentContainer.setCurrentItem(i,true);
+    }
 }
