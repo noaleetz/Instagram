@@ -10,7 +10,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -18,6 +21,7 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 import noaleetz.com.instagram.Models.Post;
 
 import static android.support.constraint.Constraints.TAG;
@@ -29,6 +33,7 @@ public class ProfileFragment extends Fragment {
     RecyclerView rvSquare;
     private ProfilePostAdapter adapter;
     private List<Post> posts;
+    private ImageView ivProfileImage;
 
 
 
@@ -51,10 +56,22 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
 
 
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        final RoundedCornersTransformation roundedCornersTransformation = new RoundedCornersTransformation(20,20);
+        final RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCornersTransformation);
+
+
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         rvSquare = view.findViewById(R.id.rvSquare);
+        ivProfileImage = view.findViewById(R.id.ivProfileImage);
+
+        Glide.with(this)
+                .load(ParseUser.getCurrentUser().getParseFile("profilePic").getUrl())
+                .apply(requestOptions)
+                .into(ivProfileImage);
 
         initRecycler();
 
@@ -121,4 +138,7 @@ public class ProfileFragment extends Fragment {
         });
 
     }
+
+
+
 }

@@ -69,6 +69,18 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
 
             ivPost = (ImageView) itemView.findViewById(R.id.ivPost);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v)
+                {
+                    // TODO- open details of pic in profile grid
+//                    final Intent i = new Intent(HomeActivity.this,LoginActivity.class);
+//                    startActivity(i);
+//                    finish();
+
+                }
+            });
+
 
 //            itemView.setOnClickListener(this);
 //

@@ -2,6 +2,7 @@ package noaleetz.com.instagram;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -119,7 +120,8 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
 
         @Override
         public void onClick(View view) {
-            // TODO- post detail page
+            final Intent i = new Intent(mcontext,DetailActivity.class);
+            mcontext.startActivity(i);
         }
 
 
