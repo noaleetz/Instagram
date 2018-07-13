@@ -1805,5 +1805,10 @@
     <dimen name="btn_fab_size">56dp</dimen>
     <dimen name="btn_fab_margins">16dp</dimen>
     <dimen name="default_elevation">8dp</dimen>
+    <dimen name="action_bar_elevation">6dp</dimen>
+    <dimen name="item_post_margin_v">8dp</dimen>
+    <dimen name="item_post_margin_h">8dp</dimen>
+    <dimen name="item_post_grid_margin_v">4dp</dimen>
+    <dimen name="button_gradient_padding">64dp</dimen>
 
 </resources>

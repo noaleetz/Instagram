@@ -11,10 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.parse.ParseException;
 
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 import noaleetz.com.instagram.Models.Post;
 
 public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
@@ -67,6 +69,17 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
         holder.tvLocation.setText(post.getLocation());
         holder.tvUsername.setText(post.getUser().getUsername());
 
+        final RoundedCornersTransformation roundedCornersTransformation = new RoundedCornersTransformation(15,15);
+        final RequestOptions requestOptions = RequestOptions.bitmapTransform(roundedCornersTransformation);
+
+
+
+        Glide.with(mcontext)
+                .load(post.getUser().getParseFile("profilePic").getUrl())
+                .apply(requestOptions)
+                .into(holder.ivProfile);
+
+
         // TODO- require location whe making post
 
         holder.tvLocation.setText(post.getLocation());
@@ -81,12 +94,12 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
     //4- make a ViewHolder class
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public ImageView ivProfilePic;
         public ImageView ivPostedImage;
 
         public TextView tvUsername;
         public TextView tvLocation;
         public TextView tvCaption;
+        public ImageView ivProfile;
 
 
         public ViewHolder(View itemView) {
@@ -95,7 +108,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
             itemView.setOnClickListener(this);
 
             //findViewById lookups
-            ivProfilePic = (ImageView) itemView.findViewById(R.id.ivProfile);
+            ivProfile = (ImageView) itemView.findViewById(R.id.ivProfile);
             ivPostedImage = (ImageView) itemView.findViewById(R.id.ivPostedImage);
             tvUsername = (TextView) itemView.findViewById(R.id.tvUsername);
             tvLocation = (TextView) itemView.findViewById(R.id.tvLocation);

@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -106,7 +107,7 @@ public class NewPostFragment extends Fragment {
         btCreate = view.findViewById(R.id.btCreate);
         btRefresh = view.findViewById(R.id.btRefresh);
         etLocationInput = view.findViewById(R.id.etLocationInput);
-        ivProfile = view.findViewById(R.id.ivImageToPost);
+        ivProfile = view.findViewById(R.id.ivProfile);
         ivImageToPost = view.findViewById(R.id.ivImageToPost);
         tvUsername = view.findViewById(R.id.tvUsername);
         tvHandle = view.findViewById(R.id.tvHandle);
@@ -121,6 +122,14 @@ public class NewPostFragment extends Fragment {
             ParseUser currentUser = ParseUser.getCurrentUser();
 
 //            TODO- profile pic
+
+//            Log.w("kjh", ParseUser.getCurrentUser().getUsername());
+            Glide.with(this)
+                    .load(ParseUser.getCurrentUser().getParseFile("profilePic").getUrl())
+                    .apply(requestOptions)
+                    .into(ivProfile);
+
+
 
 //            Glide.with(this)
 //                    .load(currentUser.getPic)
@@ -258,8 +267,11 @@ public class NewPostFragment extends Fragment {
 //                ImageView ivImageToPost = ((NewPostFragment) fragments.get(1)).ivImageToPost;
                 ImageView ivImageToPost = (ImageView) getActivity().findViewById(R.id.ivImageToPost);
 
+
+
                 Bitmap resizedBitmap = BitmapScaler.scaleToFitWidth(takenImage, ivImageToPost.getWidth());
-                // Load the taken image
+
+//
                 ivImageToPost.setImageBitmap(resizedBitmap);
             } else { // Result was a failure
 //                Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();

@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -26,7 +28,8 @@ public class FeedFragment extends Fragment {
 
     private SwipeRefreshLayout swipeContainer;
 
-
+    public TextView tvUsername;
+    public ImageView ivProfile;
 
     private RecyclerView rvPosts;
     private FeedAdapter adapter;
@@ -75,6 +78,9 @@ public class FeedFragment extends Fragment {
         rvPosts = view.findViewById(R.id.rvPosts);
         rvPosts.setLayoutManager(linearLayoutManager);
         rvPosts.setAdapter(adapter);
+
+
+
         loadTopPosts();
 
         swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);

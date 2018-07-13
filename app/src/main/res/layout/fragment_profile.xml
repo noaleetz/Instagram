@@ -1,10 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScreenLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_border"
     tools:context=".ProfileFragment">
 
 
+    <RelativeLayout
+        android:id="@+id/StatsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/ivProfileImage"
+            android:layout_width="80dp"
+            android:layout_height="68dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="23dp"
+            app:srcCompat="@drawable/ic_person_outline_black_24dp" />
+
+        <TextView
+            android:id="@+id/tvFollowersWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/tvPostsWord"
+            android:layout_marginEnd="27dp"
+            android:text="Following"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvNumFollowersWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/tvPostsWord"
+            android:layout_marginEnd="112dp"
+            android:text="Followers"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPostsWord"
+            android:layout_width="61dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="36dp"
+            android:layout_marginStart="124dp"
+            android:text="Posts"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvFollowing"
+            android:layout_width="62dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvFollowersWord"
+            android:layout_alignTop="@+id/ivProfileImage"
+            android:text="709"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tvFollowers"
+            android:layout_width="63dp"
+            android:layout_height="38dp"
+            android:layout_alignStart="@+id/tvNumFollowersWord"
+            android:layout_alignTop="@+id/ivProfileImage"
+            android:text="865"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tvPosts"
+            android:layout_width="61dp"
+            android:layout_height="38dp"
+            android:layout_alignStart="@+id/tvPostsWord"
+            android:layout_alignTop="@+id/ivProfileImage"
+            android:text="124"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/BioLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/StatsLayout">
+
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvSquare"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/BioLayout"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
