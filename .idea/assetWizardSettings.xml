@@ -23,7 +23,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="paddingPercent" value="-5" />
+                                                <entry key="paddingPercent" value="-10" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -34,8 +34,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/Instagram_logo.svg.png" />
-                                      <entry key="outputName" value="ic_curly_logo" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/Funny-Profile-Pictures-260x300.jpg" />
+                                      <entry key="outputName" value="ic_pic" />
                                     </map>
                                   </option>
                                 </PersistentState>

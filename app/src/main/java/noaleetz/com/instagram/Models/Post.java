@@ -13,9 +13,14 @@ private static final String KEY_IMAGE = "Image";
 private static final String KEY_USER = "User";
 private static final String KEY_LOCATION = "Location";
 private static final String KEY_PIC = "ProfilePic";
+private static final String KEY_LIKES = "likes";
 
 
 
+    public String getTimeCreatedAt() { return getCreatedAt().toString();}
+
+    public int getLikes() { return getInt(KEY_LOCATION);}
+    public void  setLikes(int likes) { put(KEY_LIKES,likes);}
 
     public String getLocation() { return getString(KEY_LOCATION);}
     public void  setLocation(String location) { put(KEY_LOCATION,location);}

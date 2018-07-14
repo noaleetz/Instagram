@@ -15,10 +15,13 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.parse.ParseException;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 import noaleetz.com.instagram.Models.Post;
+import noaleetz.com.instagram.Models.PostObj;
 
 public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
     // 1- pass in post array (give adapter data)
@@ -120,7 +123,24 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
 
         @Override
         public void onClick(View view) {
+            final Post post = mposts.get(getAdapterPosition());
+            final PostObj postObj = new PostObj();
+            postObj.username = post.getUser().getUsername();
+            postObj.description = post.getDescription();
+            postObj.imageUrl = post.getImage().getUrl();
+            postObj.likeCount = post.getLikes();
+            postObj.date = post.getCreatedAt();
+            try {
+                postObj.avatarUrl = post.getUser()
+                        .fetchIfNeeded()
+                        .getParseFile("profilePic")
+                        .getUrl();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
             final Intent i = new Intent(mcontext,DetailActivity.class);
+            i.putExtra("post", Parcels.wrap(postObj));
             mcontext.startActivity(i);
         }
 
