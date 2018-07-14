@@ -28,7 +28,7 @@
         android:background="@color/grey_7_85_transparent"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPassword|textVisiblePassword"
+        android:inputType="textPassword"
         android:singleLine="true"
 
         />
